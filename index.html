@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maria Salomie | Digital Portfolio</title>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>/* Global Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --primary-color: #ff3366;
+        --secondary-color: #000000;
+        background-color: #000000;
+        --card-bg: #000000; /* Changed from #111 to black */
+        --text-color: #fff;
+        --text-color-muted: #aaa;
+        --transition: all 0.3s ease;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: 'Poppins', Arial, sans-serif;
+        background-color: #000000;
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--text-color);
+        transition: var(--transition);
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .section-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #000000;
+        padding: 0 20px;
+    }
+    
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background-color: #000000;
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: var(--transition);
+        border-bottom: 1px solid #474747;
+    }
+    
+    .logo {
+        font-size: 28px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+    
+    .logo span {
+        color: var(--primary-color);
+    }
+    
+    nav {
+        display: flex;
+        align-items: center;
+    }
+    
+    nav a {
+        color: var(--text-color);
+        margin: 0 15px;
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+    }
+    
+    nav a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        left: 0;
+        bottom: -5px;
+        transition: var(--transition);
+    }
+    
+    nav a:hover::after, 
+    nav a.active::after {
+        width: 100%;
+    }
+    
+    .active-dot {
+        display: none;
+    }
+    
+    .mobile-menu-btn, .mobile-close-btn {
+        display: none;
+        cursor: pointer;
+        font-size: 24px;
+    }
+    
+    /* Hero Section */
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 100vh;
+        padding: 150px 5% 100px;
+        background: #000000; /* Changed from gradient to solid black */
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .hero-text {
+        max-width: 600px;
+    }
+    
+    .role {
+        font-size: 18px;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
+    
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    
+    .hero .name {
+        color: var(--primary-color);
+    }
+    
+    .hero-cta {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+    }
+    
+    .cta-button {
+        padding: 12px 25px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+    }
+    
+    .cta-button:hover {
+        background: #ff4d79;
+        transform: translateY(-3px);
+    }
+    
+    .cta-button.secondary {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+    }
+    
+    .cta-button.secondary:hover {
+        background: rgba(255, 51, 102, 0.1);
+    }
+    
+    .hero-image {
+        position: relative;
+    }
+    
+    .hero-image img {
+        width: 390px;
+        max-width: 500px;
+        height: 400px;
+        border-radius: 20px;
+    
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* About Section */
+    .about-section {
+        padding: 100px 0;
+        background-color: #000000;
+    }
+    
+    .about-section .section-container {
+        display: flex;
+        background-color: #000000;
+        align-items: center;
+        gap: 50px;
+    }
+    
+    .about-img {
+        flex: 1;
+        position: relative;
+    }
+    
+    .about-img img {
+        width: 550px;
+        max-width: 600px;
+        height: 570px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .about-content {
+        flex: 1.5;
+    }
+    
+    .about-content h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .about-content h2::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+    }
+    
+    .about-content p {
+        margin-bottom: 20px;
+        color: var(--text-color-muted);
+    }
+    
+    /* Tab Section */
+    .tab-titles {
+        display: flex;
+        margin: 30px 0 20px;
+        border-bottom: 1px solid rgba(135, 133, 133, 0.58);
+    }
+    
+    .tab-links {
+        margin-right: 50px;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+        position: relative;
+        padding-bottom: 10px;
+        color: var(--text-color-muted);
+        transition: var(--transition);
+    }
+    
+    .tab-links.active-link {
+        color: var(--primary-color);
+    }
+    
+    .tab-links::after {
+        content: '';
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transition: var(--transition);
+    }
+    
+    .tab-links.active-link::after {
+        width: 100%;
+    }
+    
+    .tab-contents {
+        display: none;
+    }
+    
+    .tab-contents.active-tab {
+        display: block;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tab-contents ul li {
+        list-style: none;
+        margin: 15px 0;
+    }
+    
+    .tab-contents ul li span {
+        color: var(--primary-color);
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    /* Services Section */
+    .services {
+        padding: 100px 0;
+        background: #000000; /* Changed from #080808 to black */
+    }
+    
+    .services h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+    
+    .services h2::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+    }
+    
+    .services-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        background-color: #000000;
+        flex-wrap: wrap;
+    }
+    
+    .service-card {
+    
+        padding: 50px 30px;
+        border-radius: 10px;
+        text-align: center;
+        width: 300px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        transition: var(--transition);
+        border: 2px solid rgba(67, 67, 67, 0.63);
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(255, 51, 102, 0.1);
+        border-color: rgba(255, 51, 102, 0.3);
+    }
+    
+    .service-card i {
+        font-size: 40px;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+    }
+    
+    .service-card h3 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    
+    .service-card p {
+        margin-bottom: 20px;
+        color: var(--text-color-muted);
+        font-size: 15px;
+    }
+    
+    .service-link {
+        color: var(--primary-color);
+        font-weight: 500;
+        position: relative;
+        padding-bottom: 3px;
+    }
+    
+    .service-link::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        background: var(--primary-color);
+        transition: var(--transition);
+    }
+    
+    .service-link:hover::after {
+        width: 100%;
+    }
+    
+    /* Portfolio Section */
+    .portfolio {
+        padding: 100px 0;
+        background-color: #000000;
+    }
+    
+    .portfolio h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+        background-color: #000000;
+        text-align: center;
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+    
+    .portfolio h2::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        background-color: #000000;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+    }
+    
+    .portfolio-container {
+        display: flex;
+        background-color: #000000;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .portfolio-item {
+        position: relative;
+        width: 350px;
+        height: 430px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: #000000;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .portfolio-item h3 {
+        text-align: center;
+    }
+    .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+    
+    .portfolio-item:hover img {
+        transform: scale(1.1);
+    
+    }
+    
+    .overlay {
+        width: 100%;
+        height: 0; /* Start with height 0 */
+        background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
+        border-radius: 10px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        text-align: center;
+        font-size: 14px;
+        transition: height 0.5s; /* Transition for height property */
+    }
+    
+    .portfolio-item:hover .overlay {
+        height: 100%; /* Change height to 100% on hover */
+    }
+    
+    .overlay h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .overlay p {
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 20px;
+        color: white;
+        line-height: 1.5;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    .project-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: white;
+        border-radius: 50%;
+        color: #ff1361;
+        transition: var(--transition);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .project-link:hover {
+        background: rgba(255, 255, 255, 0.9);
+        transform: scale(1.1);
+    }
+    
+    
+    
+    
+    /* Contact Section */
+    .contact-section {
+        padding: 100px 0;
+        background: #000000; /* Changed from #080808 to black */
+    }
+    
+    .contact-section h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+        text-align: center;
+        position: relative;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+    
+    .contact-section h2::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+    }
+    
+    .contact-flex {
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+    }
+    
+    .contact-left, .contact-right {
+        flex: 1;
+    }
+    
+    .contact-info {
+        margin-bottom: 30px;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .contact-item i {
+        width: 30px;
+        height: 30px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin: 25px 0;
+    }
+    
+    .social-icons a {
+        width: 40px;
+        height: 40px;
+        background: #000000; /* Changed from var(--card-bg) to black */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Added border for visibility */
+    }
+    
+    .social-icons a:hover {
+        background: var(--primary-color);
+        transform: translateY(-5px);
+    }
+    
+    .cv-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: var(--transition);
+        margin-top: 30px;
+    }
+    
+    .cv-button:hover {
+        background: #ff4d79;
+        transform: translateY(-3px);
+    }
+    
+    .contact-form {
+        background: #000000; /* Changed from var(--card-bg) to black */
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.1); /* Changed border color for visibility */
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        color: var(--text-color);
+        font-size: 16px;
+        transition: var(--transition);
+    }
+    
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background: rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+    
+    .submit-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    
+    .submit-button:hover {
+        background: #ff4d79;
+        transform: translateY(-3px);
+    }
+    
+    /* Footer */
+    footer {
+        padding: 30px 0;
+        text-align: center;
+        border-top: 1px solid rgba(111, 111, 111, 0.502);
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    .footer-logo {
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+        .hero h1 {
+            font-size: 48px;
+        }
+        
+        .about-section .section-container {
+            flex-direction: column;
+            text-align: center;
+            background-color: #000000;
+        }
+        
+        .about-content h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .tab-titles {
+            justify-content: center;
+        }
+        
+        .service-card {
+            width: 280px;
+        }
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-content p{
+            font-size: 10px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 15px;
+
+        }
+    
+        /* Adjust .about-img size */
+        .about-img img {
+            width: 390px;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .hero-image img {
+            width: 390px;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 20px;
+        
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        header {
+            padding: 15px;
+            max-width: 100%;
+        } 
+    
+        .mobile-menu-btn {
+            display: block;
+        }
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .footer-content p{
+            font-size: 10px;
+
+        }
+        
+        .footer-logo {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 2px;
+            color: white;
+            font-size: 24px;
+            z-index: 1002;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            right: -90%;
+            width: 180px;
+            height: 200vh;
+            max-height: 1500px;
+            background: var(--primary-color);
+            flex-direction: column;
+            padding: 30px 0;
+            z-index: 1001;
+            transition: 0.4s ease;
+        }
+    
+        /* Adjust .about-img size for smaller screens */
+        .about-img img {
+            width: 320px;
+            height: auto;
+            max-width: 450px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero-image img {
+            width: 390px;
+            max-width: 500px;
+            height: 400px;
+            border-radius: 20px;
+        
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        nav.active {
+            right: 0;
+        }
+        
+        nav a {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+        
+        nav a::after {
+            display: none;
+        }
+        
+        .hero {
+            flex-direction: column-reverse;
+            text-align: center;
+            padding: 120px 5% 80px;
+        }
+        
+        .hero-text {
+            margin-top: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+        }
+        
+        .hero-cta {
+            justify-content: center;
+        }
+        
+        .services-container {
+            flex-direction: column;
+            background-color: #000000;
+            align-items: center;
+        }
+        
+        .service-card {
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .portfolio-item {
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .contact-flex {
+            flex-direction: column;
+        }
+        
+        .contact-left, .contact-right {
+            width: 100%;
+        }
+        
+        .social-icons {
+            justify-content: center;
+        }
+        
+        .cv-button {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .logo {
+            font-size: 22px;
+        }
+        
+        .hero h1 {
+            font-size: 30px;
+        }
+        
+        .role {
+            font-size: 16px;
+        }
+        
+        .hero-cta {
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .cta-button {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .about-content h2, 
+        .services h2, 
+        .portfolio h2, 
+        .contact-section h2 {
+            font-size: 28px;
+        }
+        
+        .tab-links {
+            margin-right: 20px;
+            font-size: 15px;
+        }
+        
+        .contact-form {
+            padding: 20px;
+        }
+    }
+    
+    /* Animation Keyframes */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInLeft {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+    
+    /* Animations */
+    .hero-text {
+        animation: slideInLeft 1s ease;
+    }
+    
+    .hero-image {
+        animation: slideInRight 1s ease;
+    }
+    
+    .service-card, .portfolio-item, .contact-form {
+        animation: fadeIn 1s ease;
+    }
+    </style>
+<body>
+    <header>
+        <div class="logo"><span>Jun</span>rey.</div>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <div class="mobile-close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <a href="#home" class="active">Home<span class="active-dot"></span></a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Portfolio</a>   
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <p class="role">UI/UX Designer</p>
+            <h1 class="intro">Hi, I'm <span class="name">Maria Salomie</span></h1>
+            <h1 class="location">From Philippines</h1>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-button">Contact Me</a>
+                <a href="#work" class="cta-button secondary">View My Work</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="maria1.jpg" alt="Maria Salomie">
+        </div>
+    </section>
+    
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="about-img">
+                <img src="maria2.jpg" alt="Maria Salomie Dejon">
+            </div>
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>I'm <strong>Maria Salomie M. Dejon</strong>, a graduate of <strong>Asian College of Technology</strong>, 
+                    specializing in designing and editing front-end websites. I create functional digital experiences 
+                    focused on user interface and visual appeal. My skills include building responsive layouts, enhancing user experience, 
+                    and using <strong>Canva</strong> for design reference. I'm also proficient in <strong>Microsoft Excel</strong> and 
+                    <strong>Word</strong>, with experience in data organization and report preparation.</p>                                                                            
+                    
+                </p>
+                <div class="tab-titles">
+                    <p class="tab-links active-link" data-tab="skills">Skills</p>
+                    <p class="tab-links" data-tab="experience">Experience</p>
+                    <p class="tab-links" data-tab="education">Education</p>
+                </div>
+
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX Design</span><br>Creating intuitive, visually appealing user experiences</li>
+                        <li><span>Front-end Developer</span><br>Designing and editing responsive website interfaces</li>
+                        <li><span>Design & Office Tools</span><br>Using Canva, Excel, and Word for design and analytics</li>
+                        
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>Feb. 2024 – May 2024</span><br>Web Design & IT Intern at SunStar Publishing Inc.</li>
+                        <li><span>2021 – 2024</span><br>UI/UX Designer for Academic Projects</li>
+                        <li><span>2021 – 2024</span><br>Front-End Developer for Capstone Web Applications</li>                                            
+                    </ul>
+                </div>
+
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <ul class="education-list">
+                            <li>
+                                <span>2024 – 2025</span><br>
+                                Bachelor of Science in Information Technology<br>
+                                Asian College of Technology
+                            </li>                          
+                            <li>
+                                <span>2019 – 2020</span><br>
+                                Juan V. Delantar National High School<br>
+                                Consuegra, Leyte
+                            </li>
+                            <li>
+                                <span>2013 – 2014</span><br>
+                                Consuegra Elementary School<br>
+                                Consuegra, Leyte
+                            </li>
+                        </ul>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+    <section id="services" class="services">
+        <div class="section-container">
+            <h2>My Services</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <h3>UI/UX Design</h3>
+                    <p>Designing visually appealing and user-friendly interfaces for web and mobile applications.</p>
+                    <a href="#contact" class="service-link">Request Service</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Front-end Development</h3>
+                    <p>Creating modern and responsive website designs for an enhanced user experience.</p>
+                    <a href="#contact" class="service-link">Request Service</a>
+                </div>
+                    
+                <div class="service-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Design & Office Tools</h3>
+                    <p>Using Canva, Excel, and Word to create designs, reports, and organize data effectively.</p>
+                    <a href="#contact" class="service-link">Request Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+               
+        
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <h2>Contact Me</h2>
+            <div class="contact-flex">
+                <div class="contact-left">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <p>dejonmariasalomie@gmail.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <p>+63 997 527 4249</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Philippines</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="https://web.facebook.com/salomie.1234" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/prtty.elz/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/MarDejon" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- <a href="#" class="cv-button">Download CV <i class="fas fa-download"></i></a> -->
+                </div>
+                
+                <div class="contact-right">
+                    <form name="submit-to-google-sheet" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="Name" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="Email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="Subject" id="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="Message" id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <p id="form-status"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Maria Salomie M. Dejon ♡. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab functionality
+            const tabLinks = document.querySelectorAll(".tab-links");
+            const tabContents = document.querySelectorAll(".tab-contents");
+            
+            tabLinks.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active-link class from all tabs
+                    tabLinks.forEach(t => t.classList.remove("active-link"));
+                    // Add active-link class to clicked tab
+                    this.classList.add("active-link");
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => content.classList.remove("active-tab"));
+                    // Show corresponding tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add("active-tab");
+                });
+            });
+            
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const closeBtn = document.querySelector('.mobile-close-btn');
+            const nav = document.querySelector('nav');
+            
+            menuBtn.addEventListener('click', function() {
+                nav.classList.add('active');
+                closeBtn.style.display = 'block';
+            });
+            
+            closeBtn.addEventListener('click', function() {
+                nav.classList.remove('active');
+                closeBtn.style.display = 'none';
+            });
+            
+            // Close menu when a link is clicked
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    nav.classList.remove('active');
+                    closeBtn.style.display = 'none';
+                    
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                });
+            });
+            
+            // Set active menu item based on scroll position
+            function setActiveMenuItem() {
+                const sections = document.querySelectorAll('section');
+                const scrollPosition = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveMenuItem);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- Google Sheet Form Submission Script -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxPRv7Ah64BxLSaPiNvToIsVtwuenYsEzlWVO7BOVa_dzWsj4OeMGrYj2BNZn4jkv8s/exec';
+        const form = document.forms['submit-to-google-sheet'];
+    const formStatus = document.getElementById('form-status');
+    
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      // Show loading message
+      formStatus.innerHTML = '<span style="color: #aaa;">Sending message...</span>';
+      
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            console.log('Success!', data);
+            formStatus.innerHTML = '<span style="color: #4CAF50;">Message sent successfully!</span>';
+            form.reset();
+            
+            // Clear success message after 3 seconds
+            setTimeout(() => {
+                formStatus.innerHTML = '';
+            }, 3000);
+        })
+        .catch(error => {
+            console.error('Error!', error);
+            formStatus.innerHTML = '<span style="color: #ff3366;">Something went wrong. Please try again.</span>';
+        });
+    });
+</script>
+</body>
+</html>

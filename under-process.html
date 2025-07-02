@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Deployment</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+        .message {
+            font-size: 20px;
+            color: #ff9800;
+            margin-bottom: 20px;
+        }
+        .loading {
+            width: 40px;
+            height: 40px;
+            border: 5px solid #ccc;
+            border-top: 5px solid #ff9800;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        // Redirect after 3 seconds
+        setTimeout(function() {
+            window.location.href = "blank"; // Replace with your actual link
+        }, 3000);
+    </script>
+</head>
+<body>
+    <div class="message">Under Deployment</div>
+    <div class="loading"></div>
+</body>
+</html>
